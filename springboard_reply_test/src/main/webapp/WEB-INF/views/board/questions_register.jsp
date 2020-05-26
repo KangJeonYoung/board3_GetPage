@@ -25,7 +25,7 @@
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 			
-				<form role="form" action="/board/cb_register" method="post">
+				<form role="form" action="/board/questions_register" method="post">
 					<div class="form-group">
 						<label>제목</label> <input class="form-control" name='title'>
 					</div>

@@ -23,6 +23,8 @@ public interface MemberService {
 
 	public int idChk(MemberVO vo);
 
+	public String getUser(String id);
+
 
 //	
 //	public boolean modify(BoardVO board);

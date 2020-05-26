@@ -36,7 +36,7 @@
 						</div>
 						
 						<div class = "form-group">
-							<label>작성자</label> <input class = "form-control" name='writer' value="${userid }" readonly="readonly">
+							<label>작성자</label> <input class = "form-control" name='writer' value="${user }" readonly="readonly">
 						</div>
 						<button type="submit" class = "btn btn-default">글 쓰 기</button>
 						<button type="reset" class = "btn btn-default">리 셋</button>

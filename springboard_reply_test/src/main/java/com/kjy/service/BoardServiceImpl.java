@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kjy.domain.BoardCompanyVO;
+import com.kjy.domain.BoardQuestionsVO;
 import com.kjy.domain.BoardTipVO;
 import com.kjy.domain.BoardVO;
 import com.kjy.mapper.BoardMapper;
@@ -33,14 +34,20 @@ public class BoardServiceImpl implements BoardService {
 	}
 	@Override
 	public void cb_register(BoardCompanyVO board) {
-		log.info("register....."+board);
+		log.info("company_register....."+board);
 		mapper.insertCB(board);
 	}
 	@Override
 	public void tip_register(BoardTipVO board) {
-		log.info("register....."+board);
+		log.info("tip_register....."+board);
 		mapper.insertTip(board);
 	}
+	@Override
+	public void questions_register(BoardQuestionsVO board) {
+		log.info("questions_register....."+board);
+		mapper.insertQuestions(board);
+	}
+	
 
 	@Override
 	public BoardVO get(Long bno) {
@@ -57,7 +64,12 @@ public class BoardServiceImpl implements BoardService {
 		log.info("get_comapny: " + bno);
 		return mapper.read_tip(bno);
 	}
-
+	@Override
+	public BoardQuestionsVO get_questions(Long bno) {
+		log.info("get_comapny: " + bno);
+		return mapper.read_questions(bno);
+	}
+	
 
 	@Override
 	public boolean modify(BoardVO board) {
@@ -69,7 +81,18 @@ public class BoardServiceImpl implements BoardService {
 		log.info("comapny_modify" + board);
 		return mapper.company_update(board) == 1;
 	}
+	@Override
+	public boolean tip_modify(BoardTipVO board) {
+		log.info("tip_modify" + board);
+		return mapper.tip_update(board) == 1;
+	}
+	@Override
+	public boolean questions_modify(BoardQuestionsVO board) {
+		log.info("questions_modify" + board);
+		return mapper.questions_update(board) == 1;
+	}
 
+	
 	@Override
 	public boolean remove(Long bno) {
 		log.info("remove....."+ bno);
@@ -80,6 +103,17 @@ public class BoardServiceImpl implements BoardService {
 		log.info("company_remove: "+ bno);
 		return mapper.company_delete(bno) == 1;
 	}
+	@Override
+	public boolean tip_remove(Long bno) {
+		log.info("tip_remove: "+ bno);
+		return mapper.tip_delete(bno) == 1;
+	}
+	@Override
+	public boolean questions_remove(Long bno) {
+		log.info("questions_remove: "+ bno);
+		return mapper.questions_delete(bno) == 1;
+	}
+	
 	
 	@Override
 	public List<BoardVO> getList() {
@@ -93,8 +127,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 	@Override
 	public List<BoardTipVO> getTipList() {
-		log.info("getList_Company");
+		log.info("getList_Tip");
 		return mapper.getList_Tip();
+	}
+	@Override
+	public List<BoardQuestionsVO> getQuestionsList() {
+		log.info("getList_Questions");
+		return mapper.getList_Questions();
 	}
 
 

@@ -60,7 +60,7 @@
 					</textarea>
 				</div>
 				<br>
-				<c:if test="${userid == board.writer  ||  model == '1'}">
+				<c:if test="${user == board.writer  ||  model == '1'}">
 					<button type="modify" class="btn btn-default" onclick="location.href='/board/company_modify?bno=<c:out value="${board.bno }"/>'">글 수정</button>
 				</c:if>
 				<button type="list" class="btn btn-default" onclick="location.href='/board/list'">리스트</button>
@@ -86,7 +86,7 @@
 					<li class = "left clearfix" data-rno = '12'>
 						<div>
 							<div class = "header">
-								<label>작성자</label> <input class="form-control" name='replyer' value="${userid }" readonly="readonly">
+								<label>작성자</label> <input class="form-control" name='replyer' value="${user }" readonly="readonly">
 							</div>
 							<label>내용</label>
 							<p><textarea class = "form-control" rows="3" name ='reply'></textarea></p>
@@ -122,7 +122,8 @@
 							<input type="hidden" name="rno" value="${replies.rno }">
 							<input type="hidden" name="replyer" value="${replies.replyer}">
 							<button type="button" onclick="location.href='/replies/company_modify?rno=<c:out value="${replies.rno }"/>'" class='btn btn-primary btn-xs pull-right'>수 정</button>
-							<c:if test="${userid== replies.replyer  ||  model == '1'}">
+							<c:if test="${user == replies.replyer  ||  model == '1'}">
+							<input type="hidden" name="bno" value="${replies.bno }">
 							<button type="submit" id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>삭 제</button>
 							</c:if>
 							</form>

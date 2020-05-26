@@ -85,9 +85,15 @@ public class MemberController {
 		String id = (String)session.getAttribute("id");
 		if(id == null) {
 			id =".";
-			model.addAttribute("member",service.getMember(id));
+			model.addAttribute("user",service.getMember(id));
 		}
-		model.addAttribute("member",service.getMember(id));
+		model.addAttribute("user",service.getMember(id));
+		
+		if(id == null) {
+			id =".";
+			model.addAttribute("model",service.getModel(id));
+		}
+		model.addAttribute("model",service.getModel(id));
 	}
 	
 	/* 로그인 페이지 */
@@ -161,7 +167,7 @@ public class MemberController {
 
 	 
 	/* 내정보 수정 */
-	@GetMapping("/modify")
+	@PostMapping("/modify")
 	public String modify(MemberVO member, RedirectAttributes rttr) {
 		log.info("modify:"+member);
 		

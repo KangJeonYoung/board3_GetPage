@@ -47,7 +47,6 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String getModel(String id) {
 		String result = mapper.getModel(id);
-		
 		return result;
 	}
 	
@@ -79,6 +78,12 @@ public class MemberServiceImpl implements MemberService {
 	public int idChk(MemberVO vo) {
 		log.info("아이디 체크" + vo);
 		int result = mapper.idChk(vo);
+		return result;
+	}
+
+	@Override
+	public String getUser(String id) {
+		String result = mapper.getUser(id);
 		return result;
 	}
 

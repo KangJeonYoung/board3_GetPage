@@ -50,11 +50,11 @@ location.href="/login";
                                             <th>작성일</th>
                                             <th>수정일</th>
                                         </tr>
-                                   </thead>
-                                    <c:forEach items="${tip }" var="board">
+                                    </thead>
+                                    <c:forEach items="${questions }" var="board">
 									<tr>
                                    		<td><c:out value="${board.bno }"/></td>
-                                   		<td><a href='/board/tip_get?bno=<c:out value="${board.bno }"/>'>
+                                   		<td><a href='/board/questions_get?bno=<c:out value="${board.bno }"/>'>
                                    		<c:out value="${board.title }"/></a></td>
                                    		<td><c:out value="${board.writer }"/></td>
                                    		<td><fmt:formatDate pattern="yyyy-MM-dd"
@@ -118,7 +118,7 @@ location.href="/login";
             		}
         		    
         		    $("#regBtn").on("click", function(){
-        		    	self.location = "/board/tip_register";
+        		    	self.location = "/board/questions_register";
         		    });
             	});
             </script>

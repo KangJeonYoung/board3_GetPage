@@ -159,7 +159,7 @@
                                 <div class="form-group">
                                     <input pattern="[A-Za-z0-9]{4,10}" title="영문 숫자의 조합으로 4~10개를 입력하세요." class="form-control" placeholder="userid" id="userid" name="userid" type="text" required >
                                 	<br>
-                                	<button class="idChk" type="button" id="idChk" onclick="fn_idChk();" value="N">중복확인</button>
+                                	<button class="btn btn-lg btn-success btn-block"" type="button" id="idChk" onclick="fn_idChk();" value="N">중복확인</button>
                                 	<!-- <input type="button" id="button1" onclick="button1_click();" value="버튼1" /> -->
                                 </div>
                                 <label>비밀번호</label>  

@@ -136,6 +136,19 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
+            
+             <!--Start of Tawk.to Script-->
+			<script type="text/javascript">
+			var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+			(function(){
+			var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+			s1.async=true;
+			s1.src='https://embed.tawk.to/5eb4cc5081d25c0e5849e50a/default';
+			s1.charset='UTF-8';
+			s1.setAttribute('crossorigin','*');
+			s0.parentNode.insertBefore(s1,s0);
+			})();
+			</script>
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -155,7 +168,7 @@
                             <a href="/board/tip_list"><i class="fa fa-table fa-fw"></i> 취업 팁 </a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 문의 사항 </a>
+                            <a href="/board/questions_list"><i class="fa fa-edit fa-fw"></i> 문의 사항 </a>
                         </li>
                         <!-- <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>

@@ -61,9 +61,9 @@
 				</div>
 				<br>
 				<c:if test="${user == board.writer  ||  model == '1'}">
-					<button type="modify" class="btn btn-default" onclick="location.href='/board/modify?bno=<c:out value="${board.bno }"/>'">글 수정</button>
+					<button type="modify" class="btn btn-default" onclick="location.href='/board/questions_modify?bno=<c:out value="${board.bno }"/>'">글 수정</button>
 				</c:if>
-				<button type="list" class="btn btn-default" onclick="location.href='/board/list'">리스트</button>
+				<button type="list" class="btn btn-default" onclick="location.href='/board/questions_list'">리스트</button>
 			</div>
 			<!-- end panel-body -->
 		</div>
@@ -73,7 +73,7 @@
 </div>
 <!-- /.row -->
 
-	<form role="form" action="/replies/register" method="post">
+	<form role="form" action="/replies/questions_register" method="post">
 		<div class = "panel panel-default">
 			<div class= "panel-heading">
 				<i class = "fa fa-comments fa-fw"></i> 댓글
@@ -118,10 +118,10 @@
                                    		value="${replies.replyDate }"/></small>								
 							</div>
 							<p><c:out value="${replies.reply }"/></p>
-							<form action="/replies/remove" method="get">
+							<form action="/replies/questions_remove" method="get">
 							<input type="hidden" name="rno" value="${replies.rno }">
 							<input type="hidden" name="replyer" value="${replies.replyer}">
-							<button type="button" onclick="location.href='/replies/modify?rno=<c:out value="${replies.rno }"/>'" class='btn btn-primary btn-xs pull-right'>수 정</button>
+							<button type="button" onclick="location.href='/replies/questions_modify?rno=<c:out value="${replies.rno }"/>'" class='btn btn-primary btn-xs pull-right'>수 정</button>
 							<c:if test="${user == replies.replyer  ||  model == '1'}">
 							<input type="hidden" name="bno" value="${replies.bno }">
 							<button type="submit" id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>삭 제</button>

@@ -29,11 +29,17 @@
 			select * from tip_board order by bno desc
 		]]>
 	</select>
+	<select id="getList_Questions" resultType="com.kjy.domain.BoardQuestionsVO">
+		<![CDATA[
+			select * from questions_board order by bno desc
+		]]>
+	</select>
 	
 	
 	<insert id="insert">
 		insert into tbl_board (bno,title,content,writer) values (seq_board.nextval, #{title}, #{content}, #{writer})
 	</insert>
+	
 	
 	<insert id="insertSelectKey">
 		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
@@ -49,13 +55,21 @@
 		insert into company_board (bno,title,content,writer)
 		values(#{bno},#{title},#{content},#{writer})
 	</insert>
-		<insert id="insertTip">
+	<insert id="insertTip">
 		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
 			select seq_tip.nextval from dual
 		</selectKey>
 		insert into tip_board (bno,title,content,writer)
 		values(#{bno},#{title},#{content},#{writer})
 	</insert>
+	<insert id="insertQuestions">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			select seq_questions.nextval from dual
+		</selectKey>
+		insert into questions_board (bno,title,content,writer)
+		values(#{bno},#{title},#{content},#{writer})
+	</insert>
+	
 	
 	<select id="read" resultType="com.kjy.domain.BoardVO">
 		select * from tbl_board where bno = #{bno}
@@ -66,13 +80,24 @@
 	<select id="read_tip" resultType="com.kjy.domain.BoardTipVO">
 		select * from tip_board where bno = #{bno}
 	</select>
+		<select id="read_questions" resultType="com.kjy.domain.BoardQuestionsVO">
+		select * from questions_board where bno = #{bno}
+	</select>
+
 
 	<delete id="delete">
-		delete from tbl_board where bno = #{bno}
+		delete from tbl_board where bno = #{bno};
 	</delete>
 	<delete id="company_delete">
 		delete from company_board where bno = #{bno}
 	</delete>
+	<delete id="tip_delete">
+		delete from tip_board where bno = #{bno}
+	</delete>
+	<delete id="questions_delete">
+		delete from questions_board where bno = #{bno}
+	</delete>
+		
 	
 	<update id="update">
 		update tbl_board set title=#{title}, content=#{content}, writer=#{writer},
@@ -82,5 +107,14 @@
 		update company_board set title=#{title}, content=#{content}, writer=#{writer},
 		updateDate = sysdate where bno = #{bno}
 	</update>
+	<update id="tip_update">
+		update tip_board set title=#{title}, content=#{content}, writer=#{writer},
+		updateDate = sysdate where bno = #{bno}
+	</update>
+	<update id="questions_update">
+		update questions_board set title=#{title}, content=#{content}, writer=#{writer},
+		updateDate = sysdate where bno = #{bno}
+	</update>
+	
 	
 </mapper>

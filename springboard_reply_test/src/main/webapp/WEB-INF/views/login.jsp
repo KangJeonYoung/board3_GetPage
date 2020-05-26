@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>취업 정보 공유 사이트</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">로그인</h3>
                     </div>
                     <div class="panel-body">
                         <form role="form" method='post' action="/login" >
@@ -65,8 +65,8 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
-                                <button type="button" onclick="location.href='signup'" class="btn btn-lg btn-success btn-block" formmethod="get" >Sign Up</button>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">로그인</button>
+                                <button type="button" onclick="location.href='signup'" class="btn btn-lg btn-success btn-block" formmethod="get" >회원가입</button>
                             </fieldset>
                             <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
                         </form>

@@ -27,6 +27,10 @@
 		select auth from m_table where userid=#{id}
 	</select>
 	
+	<select id="getUser" resultType="String">
+		select username from m_table where userid=#{id}
+	</select>
+	
 	<update id="authInsert">
 		update m_table set auth = #{auth} where userid = #{userid}	
 	</update>
@@ -40,7 +44,7 @@
 	</select>
 	
 	<update id="update">
-		update m_table set pw = #{pw} where userid = #{userid}
+		update m_table set pw = #{pw}, username=#{username}, email=#{email}  where userid = #{userid}
 	</update>
 	
 	<select id="idChk" resultType="Integer">

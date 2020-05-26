@@ -29,6 +29,8 @@ public interface MemberMapper {
 		public int update(MemberVO member);
 
 		public int idChk(MemberVO vo);
+
+		public String getUser(String id);
 		
 		
 		

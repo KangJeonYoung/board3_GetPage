@@ -22,7 +22,7 @@
 			
 				<form role="form" action="/modify" method="post">
 				
-				   <c:forEach items="${member }" var="user">
+				   <c:forEach items="${user }" var="user">
 					<div class="form-group">
 						<label>아이디</label> <input class="form-control" name='userid' readonly="readonly" value="${user.userid }">
 					</div>

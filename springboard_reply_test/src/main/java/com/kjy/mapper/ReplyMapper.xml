@@ -20,6 +20,11 @@
 			select * from tip_reply rno
 		]]>
 	</select>
+		<select id="getList_Questions" resultType="com.kjy.domain.ReplyQuestionsVO">
+		<![CDATA[
+			select * from questions_reply rno
+		]]>
+	</select>
 	
 	
 	<insert id="insert">
@@ -40,6 +45,21 @@
 		insert into company_reply (rno, bno, reply, replyer)
 		values (#{rno}, #{bno}, #{reply}, #{replyer})
 	</insert>
+	<insert id="tip_insertSelectKey">
+		<selectKey keyProperty="rno" order="BEFORE" resultType="long">
+			select seq_tip_reply.nextval from dual
+		</selectKey>
+		insert into tip_reply (rno, bno, reply, replyer)
+		values (#{rno}, #{bno}, #{reply}, #{replyer})
+	</insert>
+	<insert id="questions_insertSelectKey">
+		<selectKey keyProperty="rno" order="BEFORE" resultType="long">
+			select seq_questions_reply.nextval from dual
+		</selectKey>
+		insert into questions_reply (rno, bno, reply, replyer)
+		values (#{rno}, #{bno}, #{reply}, #{replyer})
+	</insert>
+	
 	
 	<select id="read" resultType="com.kjy.domain.ReplyVO">
 		select * from tbl_reply where rno = #{rno}
@@ -47,12 +67,25 @@
 	<select id="company_read" resultType="com.kjy.domain.ReplyCompanyVO">
 		select * from company_reply where rno = #{rno}
 	</select>
+	<select id="tip_read" resultType="com.kjy.domain.ReplyTipVO">
+		select * from tip_reply where rno = #{rno}
+	</select>
+	<select id="questions_read" resultType="com.kjy.domain.ReplyQuestionsVO">
+		select * from questions_reply where rno = #{rno}
+	</select>
+		
 	
 	<delete id="delete">
 		delete from tbl_reply where rno = #{rno}
 	</delete>
 	<delete id="company_delete">
 		delete from company_reply where rno = #{rno}
+	</delete>
+	<delete id="tip_delete">
+		delete from tip_reply where rno = #{rno}
+	</delete>
+	<delete id="questions_delete">
+		delete from questions_reply where rno = #{rno}
 	</delete>
 
 	<update id = "update">
@@ -61,6 +94,13 @@
 	<update id = "company_update">
 		update company_reply set reply = #{reply}, updateDate = sysdate where rno = #{rno}
 	</update>
+	<update id = "tip_update">
+		update tip_reply set reply = #{reply}, updateDate = sysdate where rno = #{rno}
+	</update>
+	<update id = "questions_update">
+		update questions_reply set reply = #{reply}, updateDate = sysdate where rno = #{rno}
+	</update>
+	
 	
 	<select id="getListWithPaging" resultType="com.kjy.domain.ReplyVO">
 		select rno, bno, reply, replyer, replyDate, updatedate
